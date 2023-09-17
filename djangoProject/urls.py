@@ -1,5 +1,6 @@
 from django.urls import include, path
 from djangoProject.views.formdata import *
+from djangoProject.views.display import *
 
 """
 URL configuration for djangoProject project.
@@ -22,5 +23,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('json', UploadJson.as_view())
+    path('json', UploadJson.as_view()),
+    path('display', DisplayData.as_view())
 ]

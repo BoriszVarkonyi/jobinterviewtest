@@ -5,20 +5,20 @@ from djangoProject.models import *
 from djangoProject.serializers import *
 
 class UploadJson(APIView):
-    #Defining POST method
+    # Defining POST method
     def post(self, request):
 
-        #Initializing JSON depth variables
-        companyData = request.data["company"] #returns an object
-        employeeData = request.data["company"]["employees"] #returns an array of objects
+        # Initializing JSON depth variables
+        companyData = request.data["company"] # returns an object
+        employeeData = request.data["company"]["employees"] # returns an array of objects
 
-        #Initializing serializers
+        # Initializing serializers
         compSerializer = CompanySerializer(data=companyData)
 
-        #Create the company model, if serializer is correct
+        # Create the company model, if serializer is correct
         if(compSerializer.is_valid()):
             compSerializer.save()
-            #return Response(data=compSerializer.data, status=200)
+            # return Response(data=compSerializer.data, status=200)
         else:
             return Response(data=compSerializer.errors, status=400)
 

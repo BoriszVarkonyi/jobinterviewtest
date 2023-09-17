@@ -25,7 +25,7 @@ class UploadJson(APIView):
         # Getting the total number of the employees
         totalEmployeeCount = EmployeeModel.objects.count()
 
-        # Checking if the total number of employees is greater that 100000 and returning an error if it is true
+        # Checking if the total number of employees is greater than 100000 and returning an error if it is true
         if (totalEmployeeCount > 100000):
             return Response(data="The number of employees must be less than 100.000", status=400)
 

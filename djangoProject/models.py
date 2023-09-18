@@ -8,7 +8,7 @@ class CompanyModel(models.Model):
     description = models.TextField(null=True)
 
 class EmployeeModel(models.Model):
-    company = models.ForeignKey(CompanyModel, on_delete=models.CASCADE)
+    company = models.ForeignKey(CompanyModel, on_delete=models.CASCADE, related_name='employees')
 
     name = models.CharField(max_length=256)
     email = models.EmailField(max_length=254)
